@@ -14,8 +14,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Sample1" component={Sample2} />
-        <Stack.Screen name="Sample2" component={Sample1} />
+        <Stack.Screen name="Sample1" component={Sample1} />
+        <Stack.Screen name="Sample2" component={Sample2} />
       </Stack.Navigator>
     </NavigationContainer>
   );

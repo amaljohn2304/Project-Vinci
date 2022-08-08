@@ -1,10 +1,16 @@
 import React from 'react';
-import {View, StyleSheet,Text} from 'react-native';
+import {View, StyleSheet,Text,Button} from 'react-native';
 
-const Sample2 = () => {
+const Sample2 = ({navigation}) => {
     return (
         <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
             <Text>Sample2</Text>
+            <Button
+        title="Go to Sample1"
+        onPress={() => navigation.navigate('Sample1')
+    }
+    styles={{marginTop:40}}
+    />
         </View>
     );
 }
