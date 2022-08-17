@@ -6,6 +6,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Sample1 from './src/Screens/sample1.js';
 import Sample2 from './src/Screens/sample2.js';
+import Login from './src/Screens/login.js';
+import Register from './src/Screens/register.js';
+import Home from './src/Screens/home.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +19,9 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Sample1" component={Sample1} />
         <Stack.Screen name="Sample2" component={Sample2} />
+        <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );
