@@ -5,6 +5,7 @@ import { TouchableOpacity } from 'react-native';
 import { TouchableHighlight } from 'react-native';
 import {Email} from './email.png'
 
+
 const Login = ({navigation}) => {
     const details=[
         {
