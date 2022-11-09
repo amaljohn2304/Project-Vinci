@@ -23,27 +23,48 @@ const Login = ({navigation}) => {
     const [mulSize1, setmulSize1] = useState(1);
 
 
-    const loginHanler = () => {
+    async function loginHanler() {
         setmulSize(1);
         setmulSize1(1);
         var p=0;
         var i=0;
-        while(i<details.length){
-            if(text==details[i].email && pass==details[i].password){
-                alert("Login Successful");
-                p=1;
-                break
-            }
-            i++;
-        }
-        if(p==0){
-            alert("Login Failed");
-        }
+        var code=0
+
+        console.log(`{
+            "password":"${pass}",
+            "email":"${text}"
+        }`)
+        const response = await fetch("https://randomfashiongeneratorapi.herokuapp.com/login", {
+                                                                                                method: 'POST',
+                                                                                                headers: {
+                                                                                                'Accept': 'application/json',
+                                                                                                'Content-Type': 'application/json'
+                                                                                                },
+                                                                                                body: `{
+                                                                                                    "password":"${pass}",
+                                                                                                    "email":"${text}"
+                                                                                                }`,
+                                                                                                });
+
+                        
+                        response.json().then(data => {
+                        console.log(data.Approval_code);
+                        code=data.Approval_code;
+                        if(code==1){
+                            navigation.navigate('Home')
+                        }
+                        });
+                        console.log("code",code)
+        
+        
+
+
+
 
     }
 
     const focusScaler1 = () => {
-        setmulSize(1.1);
+        setmulSize(1.1);    
         setmulSize1(1);
     }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet,Text,Button,Image} from 'react-native';
 
+
 const Sample1 = ({ navigation }) => {
     return (
         <View style={{flex: 1,

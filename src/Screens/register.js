@@ -19,7 +19,7 @@ const Register = ({navigation}) => {
     const [gender, setGender] = useState('Male');
     
     const [text, onChangeText] = React.useState(null);
-   const [name, setName] = useState('');
+    const [name, setName] = useState('');
 
     const [pass, onChangePass] = React.useState(null);
     const [mulSize, setmulSize] = useState(1);
@@ -59,7 +59,39 @@ const Register = ({navigation}) => {
         setmulSize1(1);
         setmulSize2(1.1);
     }
+    async function loginHanler() {
+        setmulSize(1);
+        setmulSize1(1);
+        var p=0;
+        var i=0;
+        var code=0
 
+        console.log("hello")
+        const response = await fetch("https://randomfashiongeneratorapi.herokuapp.com/register", {
+                                                                                                method: 'POST',
+                                                                                                headers: {
+                                                                                                'Accept': 'application/json',
+                                                                                                'Content-Type': 'application/json'
+                                                                                                },
+                                                                                                body: `{
+                                                                                                    "username":"${name}",
+                                                                                                    "password":"${pass}",
+                                                                                                    "number":"9876453627",
+                                                                                                    "email":"${text}"
+                                                                                                }`,
+                                                                                                });
+
+                        
+                        response.json().then(data => {
+                        console.log(data);
+                        });
+        
+        
+
+
+
+
+    }
 
     return (
         <View>
@@ -118,7 +150,7 @@ const Register = ({navigation}) => {
             <TouchableOpacity style={{top:'15%',height:'15%',width:'80%',backgroundColor:'#F87474',elevation:10,alignItems:'center',
             borderBottomLeftRadius:100,borderBottomRightRadius:100,borderTopLeftRadius:100,borderTopRightRadius:100
             }}
-            onPress={()=>navigation.navigate('Sample1')}
+            onPress={()=>loginHanler()}
             >
                 <Text style={{fontSize:20,color:'white',top:'30%'}}>Register</Text>
             </TouchableOpacity>
