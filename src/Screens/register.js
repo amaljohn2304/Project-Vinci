@@ -4,6 +4,10 @@ import {View, StyleSheet,Text,TextInput,Image} from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { TouchableHighlight } from 'react-native';
 import {Email} from './email.png'
+import Toast from 'react-native-simple-toast';
+
+
+
 
 const Register = ({navigation}) => {
     const details=[
@@ -65,8 +69,14 @@ const Register = ({navigation}) => {
         var p=0;
         var i=0;
         var code=0
-
+        
         console.log("hello")
+        if(text && pass &&name){
+            console.log("data good")
+        }
+        else{
+            return;
+        }
         const response = await fetch("https://randomfashiongeneratorapi.herokuapp.com/register", {
                                                                                                 method: 'POST',
                                                                                                 headers: {
@@ -85,7 +95,14 @@ const Register = ({navigation}) => {
                         response.json().then(data => {
                         console.log(data);
                         });
-        
+        if(response.Approval_code==1){
+            navigation.navigate('Home')
+        }
+        else{
+            console.log("mail Exists")
+            Toast.show('Mail Already Exists');
+            
+        }
         
 
 
@@ -129,6 +146,7 @@ const Register = ({navigation}) => {
             onChangeText={onChangePass}
             placeholder="Password"
             value={pass} 
+            secureTextEntry={true}
             inlineImageLeft="Email"
             onPressIn={focusScaler2}
             />

@@ -4,6 +4,7 @@ import {View, StyleSheet,Text,TextInput,Image} from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { TouchableHighlight } from 'react-native';
 import {Email} from './email.png'
+import Toast from 'react-native-simple-toast';
 
 
 const Login = ({navigation}) => {
@@ -53,6 +54,9 @@ const Login = ({navigation}) => {
                         if(code==1){
                             navigation.navigate('Home')
                         }
+                        else{
+                            Toast.show('Wrong Credentials');
+                        }
                         });
                         console.log("code",code)
         
@@ -96,6 +100,7 @@ const Login = ({navigation}) => {
             borderBottomLeftRadius:10,borderBottomRightRadius:10,borderTopLeftRadius:10,borderTopRightRadius:10,padding:'2%',transform:[{scale:mulSize1}]}}
             onChangeText={onChangePass}
             placeholder="Password"
+            secureTextEntry={true}
             value={pass} 
             inlineImageLeft="Email"
             onPressIn={focusScaler2}
