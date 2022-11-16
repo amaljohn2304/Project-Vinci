@@ -8,7 +8,7 @@ import {NewC} from './newc.png';
 import {HomeI} from './home.png';
 import {HomeC} from './homec.png';
 
-
+export var option=0;
 
 const BottomBar = (props) => {
 
@@ -22,6 +22,7 @@ const BottomBar = (props) => {
                 setHi(1);
                 setNi(0);
                 setTi(0);
+                option=0;
                 
             }}>
                 <Image source={require('./home.png')}  />
@@ -33,6 +34,7 @@ const BottomBar = (props) => {
                 setHi(0);
                 setNi(1);
                 setTi(0);
+                option=1;
                 
             }}>
                 <Image source={require('./new.png')} />
@@ -43,6 +45,7 @@ const BottomBar = (props) => {
                 setHi(0);
                 setNi(0);
                 setTi(1);
+                option=2;
                 
             }}>
                 <Image source={require('./top.png')} />
