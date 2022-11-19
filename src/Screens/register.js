@@ -94,15 +94,20 @@ const Register = ({navigation}) => {
                         
                         response.json().then(data => {
                         console.log(data);
+                        if(data.Approval_code==1){
+                            navigation.navigate('Home',{
+                                name:name,
+                                number:"9876453627",
+                                email:text
+                            })
+                        }
+                        else{
+                            console.log("mail Exists")
+                            Toast.show('Mail Already Exists');
+                            
+                        }
                         });
-        if(response.Approval_code==1){
-            navigation.navigate('Home')
-        }
-        else{
-            console.log("mail Exists")
-            Toast.show('Mail Already Exists');
-            
-        }
+        
         
 
 

@@ -51,8 +51,13 @@ const Login = ({navigation}) => {
                         response.json().then(data => {
                         console.log(data.Approval_code);
                         code=data.Approval_code;
+                        console.log(data)
                         if(code==1){
-                            navigation.navigate('Home')
+                            navigation.navigate('Home',{
+                                name:data.username,
+                                number:data.number,
+                                email:data.email
+                            })
                         }
                         else{
                             Toast.show('Wrong Credentials');

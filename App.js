@@ -9,6 +9,7 @@ import Sample2 from './src/Screens/sample2.js';
 import Login from './src/Screens/login.js';
 import Register from './src/Screens/register.js';
 import Home from './src/Screens/home.js';
+import Profile from './src/Screens/profile.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,9 +18,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
+        
+        <Stack.Screen name="Register" component={Register} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
